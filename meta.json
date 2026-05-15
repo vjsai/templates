@@ -5066,16 +5066,20 @@
   {
     "id": "plane",
     "name": "Plane",
-    "version": "v0.27.1",
-    "description": "Easy, flexible, open source project management software",
-    "logo": "plane.png",
+    "version": "stable",
+    "description": "Open-source project management tool to track issues, sprints, and product roadmaps. Self-hosted Jira/Linear alternative.",
+    "logo": "logo.svg",
     "links": {
       "github": "https://github.com/makeplane/plane",
       "website": "https://plane.so",
       "docs": "https://docs.plane.so/"
     },
     "tags": [
-      "kanban"
+      "kanban",
+      "project-management",
+      "productivity",
+      "issue-tracking",
+      "self-hosted"
     ]
   },
   {
