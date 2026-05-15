@@ -58,14 +58,14 @@ x-app-env: &app-env
 
 services:
   web:
-    image: makeplane/plane-frontend:${APP_RELEASE:-stable}
+    image: makeplane/plane-frontend:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     depends_on:
       - api
       - worker
 
   space:
-    image: makeplane/plane-space:${APP_RELEASE:-stable}
+    image: makeplane/plane-space:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     depends_on:
       - api
@@ -73,14 +73,14 @@ services:
       - web
 
   admin:
-    image: makeplane/plane-admin:${APP_RELEASE:-stable}
+    image: makeplane/plane-admin:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     depends_on:
       - api
       - web
 
   live:
-    image: makeplane/plane-live:${APP_RELEASE:-stable}
+    image: makeplane/plane-live:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     environment:
       <<: [*live-env, *redis-env]
@@ -89,7 +89,7 @@ services:
       - web
 
   api:
-    image: makeplane/plane-backend:${APP_RELEASE:-stable}
+    image: makeplane/plane-backend:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     command: ./bin/docker-entrypoint-api.sh
     volumes:
@@ -102,7 +102,7 @@ services:
       - plane-mq
 
   worker:
-    image: makeplane/plane-backend:${APP_RELEASE:-stable}
+    image: makeplane/plane-backend:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     command: ./bin/docker-entrypoint-worker.sh
     volumes:
@@ -116,7 +116,7 @@ services:
       - plane-mq
 
   beat-worker:
-    image: makeplane/plane-backend:${APP_RELEASE:-stable}
+    image: makeplane/plane-backend:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     command: ./bin/docker-entrypoint-beat.sh
     volumes:
@@ -130,7 +130,7 @@ services:
       - plane-mq
 
   migrator:
-    image: makeplane/plane-backend:${APP_RELEASE:-stable}
+    image: makeplane/plane-backend:${APP_RELEASE:-v1.3.1}
     restart: "no"
     command: ./bin/docker-entrypoint-migrator.sh
     volumes:
@@ -174,7 +174,7 @@ services:
       - uploads:/export
 
   proxy:
-    image: makeplane/plane-proxy:${APP_RELEASE:-stable}
+    image: makeplane/plane-proxy:${APP_RELEASE:-v1.3.1}
     restart: unless-stopped
     environment:
       <<: *proxy-env
